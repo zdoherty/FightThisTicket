@@ -14,6 +14,9 @@ Vagrant.configure("2") do |config|
   # config.vm.provision "shell", path: "scripts/setup-redis.sh"
   # config.vm.network "forwarded_port", host:6379, guest:6379
 
+  # this installs nodejs
+  config.vm.provision "shell", path: "scripts/setup-nodejs.sh"
+
   # this little gadget will try to reload the nginx configuration
   # if it ever changes. it's a bit hacky, sorry :(
   #
