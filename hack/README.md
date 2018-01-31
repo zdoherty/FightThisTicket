@@ -44,6 +44,7 @@ To install Vagrant on MacOS with homebrew, run the following:
     wget -O $TEMP/vagrant_${VAGRANT_VERSION}_x86_64.deb https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_x86_64.deb
     wget -O $TEMP/vagrant_${VAGRANT_VERSION}_SHA256SUMS https://releases.hashicorp.com/vagrant/${VAGRANT_VERSION}/vagrant_${VAGRANT_VERSION}_SHA256SUMS
     sha256sum -c --ignore-missing $TEMP/vagrant_${VAGRANT_VERSION}_SHA256SUMS || { echo "Vagrant deb didn't match checksum." ; exit 1 ; }
+    # tmp is probably mounted noexec and apt hates that
     mv $TEMP/vagrant_${VAGRANT_VERSION}_x86_64.deb $HOME
     sudo apt install $HOME/vagrant_${VAGRANT_VERSION}_x86_64.deb
     # hit yes to these prompts if they're sane
