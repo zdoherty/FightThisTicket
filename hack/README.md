@@ -4,14 +4,12 @@ Hack - Local Development and Deployment Tooling
 This directory contains scripts and configuration files used for provisioning
 local testing environments and remote, immutable infrastructure.
 
-Structure
----------
+## Structure
 
 To keep things organized, application configuration files are kept in the `files`
 directory while scripts used to install them are kept in the `scripts` directory.
 
-First Time Setup
-~~~~~~~~~~~~~~~~
+### First Time Setup
 
 The Vagrantfile controls how to provision a local VM for testing. This requires
 the Vagrant tool from Hashicorp. How it's installed depends on your platform, but
@@ -59,8 +57,7 @@ If you don't believe in package managers or don't use a host operating system li
 here, you'll probably want to visit the Vagrant [downloads page](https://www.vagrantup.com/downloads.html)
 and consult their [installation documentation](https://www.vagrantup.com/docs/installation/).
 
-Provisioning a Local VM
-~~~~~~~~~~~~~~~~~~~~~~~
+### Provisioning a Local VM
 
 To setup a local testing environment, run the following:
 
