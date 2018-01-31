@@ -1,0 +1,4 @@
+# these are created by the vagrant guest and shouldn't be in version control
+.vagrant/
+*.log
+*-errors

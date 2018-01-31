@@ -1,0 +1,26 @@
+Vagrant.configure("2") do |config|
+  config.vm.box = "ubuntu/xenial64"
+  config.vm.network "forwarded_port", host:8080, guest:8080
+  config.vm.network "forwarded_port", host:6379, guest:6379
+
+  # this is needed for the other setup scripts to succeed and
+  # does some basic system configuration
+  config.vm.provision "shell", path: "scripts/sundry.sh"
+
+  # this configures the nginx reverse proxy so we're not exposing
+  # our app directly to the internet (or locally, in this case)
+  config.vm.provision "shell", path: "scripts/setup-nginx.sh"
+
+  # this configures a redis cache, which you might not need
+  # config.vm.provision "shell", path: "scripts/setup-redis.sh"
+
+  # this installs latex, the swiss army knife of rich text and
+  # pdf manipulation
+  config.vm.provision "shell", path: "scripts/setup-latex.sh"
+
+  # this little gadget will try to reload the nginx configuration
+  # if it ever changes. it's a bit hacky, sorry :(
+  #
+  # we can expand it to reload the app when code changes later!
+  config.vm.provision "shell", path: "scripts/setup-reloader.sh"
+end
